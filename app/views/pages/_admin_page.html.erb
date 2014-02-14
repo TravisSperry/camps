@@ -75,9 +75,9 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class='todays_registrations'>
           <div class="header">
-            <h2>Feature 6</h2>
+            <h2>Revenue</h2>
           </div>
-          <span></span>
+          <span>$ <%= number_with_precision(@camp_revenue.to_f/100, precision: 0) %></span>
         </div>
       </div><!-- /.col-lg-4 col-md-4 col-sm-12 -->
     </div> <!-- admin_dashboard -->

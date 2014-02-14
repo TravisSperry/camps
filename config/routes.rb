@@ -23,6 +23,7 @@ Camps::Application.routes.draw do
 
   get '/faq', to: 'pages#faq'
   get '/comparison', to: 'pages#comparison'
+  get '/testimonials', to: 'pages#testimonials'
   post 'coupon_codes/code_lookup', to: 'coupon_codes#code_lookup'
   post 'camp_offerings/week_at_a_glance', to: 'camp_offerings#week_at_a_glance'
 

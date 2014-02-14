@@ -1,5 +1,26 @@
 <div class="container">
-  <h1>The Most Frequently Of Asked Questions...</h1>
+  <h1>Answers to Frequently Asked Questions...</h1>
+  <h3>Do you offer a money-back guarantee?</h3>
+  <p>
+    We are the only camp that offers a 100% satisfaction guarantee. If your child attends camp and doesn't like it, we will provide a full refund! (We've served over 1,000 students and never had to issue a refund.)
+  </p>
+  <h3>If needed, can I switch my camp enrollment to another time?</h3>
+  <p>
+    Yes! As long as we have availability, you can always switch your enrollment to another camp at no charge. You'll just need to call us to make the change.
+  </p>
+  <h3>Do you offer Girls Only camps?</h3>
+  <p>
+    Yes! We believe that some girls benefit greatly from being in a class with like-minded peers. We offer girls only camps to help inspire and empower the next generation of female scientists, engineers, and inventors.
+  </p>
+  <h3>What is the typical daily camp agenda?</h3>
+  <p>
+    The typical schedule features hands-on activity, challenges, and games designed to spark your child's creativity and excitement. Students work individually and in pairs throughout the day. Students are given 15 minutes breaks throughout the day and are provided water and healthy snacks.<br />
+    For kids that do a morning and afternoon camp or a full day camp, we take a 30 minute break for lunch. Lunch is supervised, however, students must bring their own lunch.
+  </p>
+  <h3>What are the qualifications of the instructors?</h3>
+  <p>
+    Most of our instructors are certified math teachers. For robotics and computer programming, we often use experienced engineers. All of the insctuctors love math and science and have a passion for inspiring young minds. In addition, they have passed background checks and received extensive training from Math Plus Academy.
+  </p>
   <h3>How can I learn more about each camp?</h3>
   <p>
     Just give us a call at 614-792-6284 and we will be happy to answer your questions and help you find the best camps for your child.
@@ -26,11 +47,11 @@
   <h3>Are the age ranges for each camp mandatory or just guidelines?</h3>
   <p>For most of the camps, the age ranges are guidelines. If your child falls outside the guidelines, please give us a call at 614-792-6284 and we will help you make the best choice for your child's needs and abilities.</p>
 
-  <h3>Can I get on a wait-list for a full camp</h3>
+  <h3>Can I get on a wait-list for a sold out camp</h3>
   <p>Most of our camps fill up quickly. If a camp you'd like to enroll in is full, please fill out the form at the bottom of this page. We will email you when new camps are added to the schedule.</p>
 
-  <h3>I could find a camp that meets my schedule, will you be adding new camps to the schedule?</h3>
-  <p>If a camp you would like to enroll in isn't offered during a week that works for you, please fill out the form at the bottom of this page. We will email you when new camps are added to the schedule.</p>
+  <h3>I could not find a camp that meets my schedule, will you be adding new camps to the schedule?</h3>
+  <p>We plan to open more camps, if needed. So, if a camp you would like to enroll in isn't offered during a week that works for you, please fill out the form at the bottom of this page. We will email you when new camps are added to the schedule.</p>
 
   <h3>Is lunch provided for full day camps?</h3>
   <p>We do not provide lunch. Students must bring their own lunch. We do have a microwave at each facility if needed. We do provide healthy snacks throughout the day.</p>
@@ -41,23 +62,6 @@
   <h3>Can I use a my employer's flexible spending account?</h3>
   <p>Camps are usually reimbursable, check with your HR department. You'll need our Tax ID which we will be happy to provide.</p>
 
-  <form accept-charset="UTF-8" action="https://jmrmath.infusionsoft.com/app/form/process/3e93836302b43a68f3e0d36b400fd1d4" class="infusion-form" method="POST">
-    <fieldset>
-      <legend>Keep me updated!</legend>
-      <input name="inf_form_xid" type="hidden" value="3e93836302b43a68f3e0d36b400fd1d4" />
-      <input name="inf_form_name" type="hidden" value="Sign up for newsletter" />
-      <input name="infusionsoft_version" type="hidden" value="1.29.9.21" />
-      <div class="form-group">
-          <label for="inf_field_FirstName">First Name *</label>
-          <input class="form-control" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />
-      </div>
-      <div class="form-group">
-          <label for="inf_field_Email">Email *</label>
-          <input class="form-control" id="inf_field_Email" name="inf_field_Email" type="text" />
-      </div>
-      <div class="infusion-submit">
-          <input type="submit" value="Submit" class="btn btn-sm btn-primary" />
-      </div>
-    </fieldset>
-  </form>
-</div>
+ <%= render '/pages/newsletter_signup' %>
+
+</div> <!-- container -->

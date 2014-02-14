@@ -12,6 +12,7 @@
 //= require bootstrap/carousel
 //= require bootstrap/alert
 //= require underscore
+//= require pages
 //= require gritter
 //= require chosen-jquery
 //= require jquery.remotipart
