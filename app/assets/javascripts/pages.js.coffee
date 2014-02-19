@@ -13,6 +13,6 @@ jQuery ->
 				date.setTime date.getTime() + (24 * 60 * 60 * 1000)
 				exp = "; expires=" + date.toGMTString()
 				document.cookie = "summerpopup=true" + exp
-			, 15000
+			, 45000
 
 	#document.cookie = 'summerpopup' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
