@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Listing Camps</h1>
+  <h1>All Courses</h1>
 
   <p>
     Download:
-    <%= link_to "CSV", camps_path(format: "csv") %>
+    <%= link_to "CSV", courses_path(format: "csv") %>
   </p>
 
   <table class="datatable display no-wrap table table-striped" width="100%">
@@ -21,17 +21,17 @@
       </tr>
     </thead>
     <tbody>
-      <% @camps.each do |camp| %>
+      <% @courses.each do |course| %>
         <tr>
-          <td><%= camp.id %></td>
-          <td><%= camp.title %></td>
-          <td>$<%= camp.price if camp.price %></td>
-          <td><%= camp.capacity %></td>
-          <td><%= camp.age %></td>
-          <td><%= camp.online %></td>
-          <td><%= link_to 'Show', camp %></td>
-          <td><%= link_to 'Edit', edit_camp_path(camp) %></td>
-          <td><%= link_to 'Destroy', camp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= course.id %></td>
+          <td><%= course.title %></td>
+          <td>$<%= course.price if course.price %></td>
+          <td><%= course.capacity %></td>
+          <td><%= course.age %></td>
+          <td><%= course.online %></td>
+          <td><%= link_to 'Show', course %></td>
+          <td><%= link_to 'Edit', edit_course_path(course) %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -43,8 +43,8 @@
     <div class="col-md-5">
       <div class="card">
         <div class="card-block">
-          <h3 class="card-title">Import Camps</h3>
-          <%= form_tag import_camps_path, multipart: true do %>
+          <h3 class="card-title">Import courses</h3>
+          <%= form_tag import_courses_path, multipart: true do %>
             <%= file_field_tag :file %><br />
             <%= submit_tag "Import", class: 'btn btn-sm btn-white mt-4' %>
           <% end %>
@@ -56,5 +56,5 @@
 
   <br />
 
-  <%= link_to 'New Camp', new_camp_path, class:"btn btn-lg btn-green" %>
+  <%= link_to 'New course', new_course_path, class:"btn btn-lg btn-green" %>
 </div>

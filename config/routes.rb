@@ -23,11 +23,11 @@ Camps::Application.routes.draw do
   resources :locations
 
 
-  resources :camp_offerings do
+  resources :offerings do
     collection { post :import }
   end
 
-  resources :camps do
+  resources :courses do
     collection do
       get :descriptions
       post :import
@@ -54,7 +54,7 @@ Camps::Application.routes.draw do
   get '/terms', to: 'pages#terms'
   get '/privacy', to: 'pages#privacy'
   post 'coupon_codes/code_lookup', to: 'coupon_codes#code_lookup'
-  post 'camp_offerings/week_at_a_glance', to: 'camp_offerings#week_at_a_glance'
+  post 'offerings/week_at_a_glance', to: 'offerings#week_at_a_glance'
   get 'camp_surveys/contacted/:id', to: 'camp_surveys#contacted'
   get '/googlea898a912abc4e23c', to: 'pages#googlea898a912abc4e23c'
 end

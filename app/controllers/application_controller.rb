@@ -17,7 +17,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_camps
-    @activecamps = Camp.activecamps.sort_by! {|a| a.title}
-    @onlinecamps = Camp.onlinecamps.sort_by! {|a| a.id}
+    # @activecamps = Camp.activecamps.sort_by! {|a| a.title}
+    # @onlinecamps = Camp.onlinecamps.sort_by! {|a| a.id}
+    @activecamps = []
+    @onlinecamps = []
   end
 end

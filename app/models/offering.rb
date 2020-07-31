@@ -1,8 +1,8 @@
-class CampOffering < ActiveRecord::Base
+class Offering < ActiveRecord::Base
 
   has_and_belongs_to_many :registrations
   belongs_to :location
-  belongs_to :camp
+  belongs_to :course
 
   CURRENT_YEAR = 6
 
@@ -58,34 +58,34 @@ class CampOffering < ActiveRecord::Base
     }
 
   def self.accessible_attributes
-   ["assistant", "camp_id", "end_date", 'location_id', "start_date", "teacher", "classroom", "time", "week", "hidden", "year", "extended_care"]
+   ["assistant", "course_id", "end_date", 'location_id', "start_date", "teacher", "classroom", "time", "week", "hidden", "year", "extended_care"]
   end
 
   def name
-    if camp
-      camp.title + " " + "(Ages: #{camp.age})"
+    if course
+      course.title + " " + "(Ages: #{course.age})"
     end
   end
 
   def extended_care_name
-    camp.title
+    course.title
   end
 
   def select_name
-    # camp.title + ": " + location.name + ", " + time + " (Start Date: #{start_date.strftime('%b, %d')})"
-    camp.title + ": " + location.name + ", " + time + " #{CampOffering::OFFERING_WEEKS[week][:start].strftime("%b %d")}"
+    # course.title + ": " + location.name + ", " + time + " (Start Date: #{start_date.strftime('%b, %d')})"
+    course.title + ": " + location.name + ", " + time + " #{Offering::OFFERING_WEEKS[week][:start].strftime("%b %d")}"
   end
 
   def confirmation_name
     if location.id != 7
-      camp.title + ": " + location.name + ", " + convert_time + " (Start Date: #{CampOffering::OFFERING_WEEKS[week][:start].strftime("%b %d")})"
+      course.title + ": " + location.name + ", " + convert_time + " (Start Date: #{Offering::OFFERING_WEEKS[week][:start].strftime("%b %d")})"
     else
-      camp.title + " (Online): " + " #{CampOffering::OFFERING_WEEKS[week][:start].strftime("%b %d")} - #{CampOffering::OFFERING_WEEKS[week][:end].strftime("%b %d")} from " + time
+      course.title + " (Online): " + " #{Offering::OFFERING_WEEKS[week][:start].strftime("%b %d")} - #{Offering::OFFERING_WEEKS[week][:end].strftime("%b %d")} from " + time
     end
   end
 
   def edit_name
-    camp.title + " " + location.name + " Week: " + week.to_s + " " + time
+    course.title + " " + location.name + " Week: " + week.to_s + " " + time
   end
 
   def convert_time
@@ -118,14 +118,14 @@ class CampOffering < ActiveRecord::Base
   end
 
   def price
-    camp.price if camp
+    course.price if course
   end
 
   def open_spots
-    if camp && camp.capacity < 1
+    if course && course.capacity < 1
       0
-    elsif camp && camp.capacity >= 1
-      camp.capacity - registrations.count
+    elsif course && course.capacity >= 1
+      course.capacity - registrations.count
     else
       "no capacity"
     end
@@ -141,10 +141,10 @@ class CampOffering < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      camp_offering = find_by_id(row["id"]) || new
-      camp_offering.attributes = row.to_hash.slice(*accessible_attributes)
+      offering = find_by_id(row["id"]) || new
+      offering.attributes = row.to_hash.slice(*accessible_attributes)
       begin
-        camp_offering.save!
+        offering.save!
       rescue ActiveRecord::RecordInvalid => e
         false
       end
@@ -154,8 +154,8 @@ class CampOffering < ActiveRecord::Base
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names
-      all.each do |camp_offering|
-        csv << camp_offering.attributes.values_at(*column_names)
+      all.each do |offering|
+        csv << offering.attributes.values_at(*column_names)
       end
     end
   end

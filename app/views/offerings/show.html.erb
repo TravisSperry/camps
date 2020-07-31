@@ -3,50 +3,50 @@
     <div class="col-lg-6 col-mg-6 col-sm-6 col-xs-12">
         <p>
           <strong>Camp:</strong>
-          <%= @camp_offering.id %>: <%= @camp_offering.name %>
+          <%= @offering.id %>: <%= @offering.name %>
         </p>
 
         <p>
           <strong>Hidden:</strong>
-          <%= @camp_offering.hidden %>
+          <%= @offering.hidden %>
         </p>
 
         <p>
           <strong>Teacher:</strong>
-          <%= @camp_offering.teacher %>
+          <%= @offering.teacher %>
         </p>
 
         <p>
           <strong>Assistant:</strong>
-          <%= @camp_offering.assistant %>
+          <%= @offering.assistant %>
         </p>
 
         <p>
           <strong>Start date:</strong>
-          <%= @camp_offering.start_date %>
+          <%= @offering.start_date %>
         </p>
 
         <p>
           <strong>End date:</strong>
-          <%= @camp_offering.end_date %>
+          <%= @offering.end_date %>
         </p>
 
         <p>
           <strong>Location:</strong>
-          <%= @camp_offering.location.name if @camp_offering.location %>
+          <%= @offering.location.name if @offering.location %>
         </p>
 
         <p>
           <strong>Camp Roster</strong>
           <ul>
-          <% @camp_offering.registrations.each do |registration| %>
+          <% @offering.registrations.each do |registration| %>
             <li><%= link_to "#{registration.student_first_name} #{registration.student_last_name}", registration, target: '_blank' %></li>
           <% end %>
           </ul>
         </p>
 
-        <%= link_to 'Edit', edit_camp_offering_path(@camp_offering) %> |
-        <%= link_to 'Back', camp_offerings_path %></div>
+        <%= link_to 'Edit', edit_offering_path(@offering) %> |
+        <%= link_to 'Back', offerings_path %></div>
     </div>
   </div>
 </div>

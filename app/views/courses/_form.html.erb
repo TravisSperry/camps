@@ -1,7 +1,7 @@
-<%= simple_form_for(@camp) do |f| %>
-  <% if @camp.errors.any? %>
+<%= simple_form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@camp.errors.count, "error") %> prohibited this camp from being saved:</h2>
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
     </div>
   <% end %>
   <div class="row">
@@ -12,7 +12,7 @@
       <%= f.input :age %>
       <%= f.input :video_url, label: "Video Url", as: :string %>
       <%= f.input :girls_only, label: "Girls Only" %>
-      <%= f.input :online, label: "Online Camp" %>
+      <%= f.input :online, label: "Online course" %>
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
       <%= f.input :description, input_html: { rows: 20 }, label: "Modal Description" %>

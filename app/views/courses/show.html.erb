@@ -1,0 +1,41 @@
+<div style="margin-top:20px;" class="container">
+
+  <h1><%= @course.title %> <small style="font-size: 30px;">&nbsp; Ages <%= @course.age %></small></h1>
+
+  <div class="show-course">
+    <% if @course.online %>
+      <div class="badge badge-success" style="margin-bottom:15px;">Online course</div>
+    <% else %>
+      <span class="badge badge-primary" style="margin-bottom:15px;">In-Person course</span>
+    <% end %>
+    <%= raw @course.description %>
+    <% if @course.online %>
+      <br /><br />Tuition: $<%= @course.price %>
+      <br /><br />Includes:
+      <ul>
+        <li>Math Plus Academy Certified instructors.
+        <li>7.5 to 10 hours of live, online instruction.
+        <li>Plus >5 hours of self-paced activities.
+        <li>Guaranteed student:teacher ratio of 4 to 1 or better.
+      </ul>
+    <% else %>
+      <% unless @course.id == 39 %>
+        <br /><br />course is limited to <%= @course.capacity %> students.
+        <br /><br />Half-day Monday through Friday (9:00am-12:00pm or 1:00-4:00pm).
+        <br /><br />Tuition: $<%= @course.price %>
+      <% end %>
+    <% end %>
+  </div>
+  <hr>
+  <!-- <div class="text-center">
+    <h3>course Schedules:</h3>
+    <%# render '/pages/registration_buttons' %>
+  </div> -->
+
+  <% if current_user && current_user.role?("SuperAdmin") %>
+    <p>
+      <%= link_to 'Edit', edit_course_path(@course) %> |
+      <%= link_to 'Back', courses_path %><br>
+    </p>
+  <% end %>
+</div>

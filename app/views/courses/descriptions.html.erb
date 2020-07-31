@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>course Information</h1>
+  <% @courses.each do |course| %>
+    <% unless course.show_description.nil? || course.show_description.empty? %>
+    <div id="course<%= course.id %>_description">
+      <%= raw course.show_description %>
+      <hr style="border-top:9px solid #333333;margin:20px 0 20px 0;">
+    </div>
+    <p>
+      <%= render '/pages/registration_buttons' %>
+    </p>
+    <% end %>
+  <% end %>
+</div>

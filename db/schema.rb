@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200501150226) do
+ActiveRecord::Schema.define(version: 20200731193408) do
 
   create_table "camp_interests", force: true do |t|
     t.string   "name"
@@ -20,24 +20,6 @@ ActiveRecord::Schema.define(version: 20200501150226) do
     t.boolean  "newsletter"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "camp_offerings", force: true do |t|
-    t.integer  "camp_id"
-    t.string   "teacher"
-    t.string   "assistant"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "offering_time"
-    t.integer  "classroom"
-    t.integer  "week"
-    t.string   "time"
-    t.boolean  "hidden"
-    t.integer  "year"
-    t.boolean  "extended_care", default: false
   end
 
   create_table "camp_offerings_registrations", id: false, force: true do |t|
@@ -74,20 +56,6 @@ ActiveRecord::Schema.define(version: 20200501150226) do
 
   add_index "camp_surveys_weekly_programs", ["camp_survey_id", "weekly_program_id"], name: "samp_survery_prog"
 
-  create_table "camps", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "capacity"
-    t.string   "age"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "price"
-    t.text     "show_description"
-    t.boolean  "girls_only",       default: false
-    t.text     "video_url"
-    t.boolean  "online"
-  end
-
   create_table "coupon_codes", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -99,6 +67,20 @@ ActiveRecord::Schema.define(version: 20200501150226) do
     t.string   "image_uid",         default: ""
     t.integer  "half_day_discount", default: 0
     t.integer  "full_day_discount", default: 0
+  end
+
+  create_table "courses", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "capacity"
+    t.string   "age"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "price"
+    t.text     "show_description"
+    t.boolean  "girls_only",       default: false
+    t.text     "video_url"
+    t.boolean  "online"
   end
 
   create_table "invoices", force: true do |t|
@@ -129,6 +111,24 @@ ActiveRecord::Schema.define(version: 20200501150226) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "directions"
+  end
+
+  create_table "offerings", force: true do |t|
+    t.integer  "camp_id"
+    t.string   "teacher"
+    t.string   "assistant"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "offering_time"
+    t.integer  "classroom"
+    t.integer  "week"
+    t.string   "time"
+    t.boolean  "hidden"
+    t.integer  "year"
+    t.boolean  "extended_care", default: false
   end
 
   create_table "registrations", force: true do |t|
