@@ -29,7 +29,7 @@ gem "timecop"
 gem "ranked-model"
 gem "rspec-rails", group: ["development", "test"]
 gem "factory_girl_rails", "~> 4.0", group: ["development", "test"]
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails", "~> 4.0.3.1"
 gem "underscore-rails"
 gem "rails-assets-tether"
