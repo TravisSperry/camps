@@ -59,10 +59,10 @@ GEM
     autoprefixer-rails (10.2.4.0)
       execjs
     bcrypt (3.1.16)
-    bootstrap (4.0.0.beta)
-      autoprefixer-rails (>= 6.0.3)
-      popper_js (~> 1.11.1)
-      sass (>= 3.4.19)
+    bootstrap (5.0.0.beta1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.4)
@@ -213,7 +213,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
-    popper_js (1.11.1)
+    popper_js (1.16.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -346,7 +346,7 @@ PLATFORMS
 
 DEPENDENCIES
   active-campaign-rails
-  bootstrap (~> 4.0.0.alpha6)
+  bootstrap (~> 5.0.0.beta1)
   bootstrap-will_paginate
   cancan
   carrierwave
